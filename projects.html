@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <!-- 
+        
+        <!-- -- >
+        BootStrap
+        4.3.1 downloaded as zip - extracted to project CSS folder
+        --> 
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <title></title>
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!-- navbar section -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">PowerShell</div>
+            <div class="card-body">
+                <h4 class="card-title">Preparation Configuration Tool</h4>
+                    <p class="card-text">
+                        
+                        <code class="">
+                        ############Case Number Label#############
+                        $caseNLabel = New-object System.Windows.Forms.Label
+                        $caseNLabel.Text = "Case Number:"
+                        $caseNLabel.Location = New-Object System.Drawing.Point(50, 115)
+                        $caseNLabel.size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($caseNLabel)
+                        ############Case Number TextBox###########
+                        $caseNBox = New-Object System.Windows.Forms.TextBox
+                        $caseNBox.Location = New-Object System.Drawing.Point(155,115) 
+                        $caseNBox.Size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($caseNBox)
+                        ############Client Label#############
+                        $caseNLabel = New-object System.Windows.Forms.Label
+                        $caseNLabel.Text = "Client:"
+                        $caseNLabel.Location = New-Object System.Drawing.Point(50, 175)
+                        $caseNLabel.size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($caseNLabel)
+                        ############Client TextBox###########
+                        $caseNBox = New-Object System.Windows.Forms.TextBox
+                        $caseNBox.Location = New-Object System.Drawing.Point(155,175) 
+                        $caseNBox.Size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($caseNBox)
+                        ############Make Label#############
+                        $makeLabel = New-object System.Windows.Forms.Label
+                        $makeLabel.Text = "Brand:"
+                        $makeLabel.Location = New-Object System.Drawing.Point(260, 115)
+                        $makeLabel.size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($makeLabel)
+                        ############Make TextBox###########
+                        $makeBox = New-Object System.Windows.Forms.TextBox
+                        $make = (gwmi Win32_ComputerSystem).Manufacturer
+                        $makeBox.Text = $make
+                        $makeBox.Location = New-Object System.Drawing.Point(365,115)
+                        $makeBox.Size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($makeBox)
+                        ############Model Label#############
+                        $modelLabel = New-object System.Windows.Forms.Label
+                        $modelLabel.Text = "Model:"
+                        $modelLabel.Location = New-Object System.Drawing.Point(470, 115)
+                        $modelLabel.size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($modelLabel)
+                        ############Model TextBox###########
+                        $modelBox = New-Object System.Windows.Forms.TextBox
+                        $model = (gwmi Win32_ComputerSystem).Model
+                        $modelBox.Text = $model
+                        $modelBox.Location = New-Object System.Drawing.Point(575,115)
+                        $modelBox.Size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($modelBox)
+                        ############Time Label#############
+                        $timeLabel = New-object System.Windows.Forms.Label
+                        $timeLabel.Text = "Time:"
+                        $timeLabel.Location = New-Object System.Drawing.Point(260, 175)
+                        $timeLabel.size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($timeLabel)
+                        ############Time TextBox###########
+                        $timeBox = New-Object System.Windows.Forms.TextBox
+                        tzutil /s "Eastern Standard Time"
+                        $time = Get-TimeZone
+                        $timeBox.Text = $time
+                        $timeBox.Location = New-Object System.Drawing.Point(360,175) 
+                        $timeBox.Size = New-Object System.Drawing.Size(100, 55)
+                        $SYSINFO_GROUPBOX.Controls.Add($timeBox)
+
+                        $form.Controls.Add($SYSINFO_GROUPBOX) #<-- loads the GroupBox holding the above items to the form, must load after all items in groupbox
+                        #################################################SYSINFO_GROUPBOX END##################################################
+                        #################################################ADMIN_GROUPBOX CONFIG#################################################
+                        #THIS SECTION CONTAINS INTERACTIVE PROCESSES THAT CANNOT BE JUST RUN#
+                        $ADMIN_GROUPBOX = New-Object System.Windows.Forms.GroupBox
+                        $ADMIN_GROUPBOX.Location = New-Object System.Drawing.Point(27.5, 370)
+                        $ADMIN_GROUPBOX.Size = New-Object System.Drawing.Size(900, 200)
+                        $ADMIN_GROUPBOX.Text = "Administrative Interaction"
+                        #######################################################################################################################
+                        ############PC Name Button###########
+                        $renameButton = New-Object System.Windows.Forms.Button
+                        $computerName = Get-WmiObject Win32_ComputerSystem 
+                        $renameButton.Location = New-Object System.Drawing.Point(55,442.5) 
+                        $renameButton.Size = New-Object System.Drawing.Size(100, 55)
+                        $renameButton.Text = "Rename Computer"
+                        $renameButton.TabIndex = 0
+                        $renameButton.Add_Click(
+                                {    
+                                        [System.Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic') | Out-Null
+                                $name = [Microsoft.VisualBasic.Interaction]::InputBox("Enter PC Name")
+                                $computerName.Rename($name)
+                                }
+                            )
+                        $form.Controls.Add($renameButton)
+                        ############Enable LUSR Button###########
+                        $adminButton = New-Object System.Windows.Forms.Button
+                        $adminButton.Location = New-Object System.Drawing.Point(160, 442.5) 
+                        $adminButton.Size = New-Object System.Drawing.Size(100, 55)
+                        $adminButton.Text = " Activate Admin" 
+                        $adminButton.TabIndex = 1
+                        $form.Controls.Add($adminButton)
+                        $adminButton.Add_Click(
+                                { 
+                                        [System.Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic') | Out-Null
+                                $name = [Microsoft.VisualBasic.Interaction]::InputBox("Admin Name")
+                                $pass = [Microsoft.VisualBasic.Interaction]::InputBox("Password")
+                                $password = $pass | ConvertTo-SecureString -AsPlainText -Force
+                                New-LocalUser -Name $name -Password $password -Description "Client Specific local admin" 
+                                }
+                            )
+                        ############UAC Button#############
+                        $uacButton = New-Object System.Windows.Forms.Button
+                        $uacButton.Location = New-Object System.Drawing.Point(265,442.5) 
+                        $uacButton.Size = New-Object System.Drawing.Size(100, 55)
+                        $uacButton.Text = "Disable UAC"
+                        $uacButton.TabIndex = 0
+                        $uacButton.Add_Click(
+                                {
+                                        ##CONNECT TO REGISTRY VIA PSSESSION
+                                        Set-Service -Name remoteregistry -ComputerName $env:COMPUTERNAME -StartupType Manual
+                                        Get-Service remoteregistry -ComputerName $env:COMPUTERNAME | Start-Service
+                                        $RootKey = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey("LocalMachine", $env:COMPUTERNAME)
+                                        $numVersion = (Get-CimInstance Win32_OperatingSystem).Version
+                                        $numSplit = $numVersion.split(".")[0]
+                                        if ($numSplit -eq 10) {
+                                        Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value "0"
+                                        } ElseIf ($numSplit -eq 6) {
+                                        $enumSplit = $numSplit.split(".")[1]
+                                        if ($enumSplit -eq 1 -or $enumSplit -eq 0) {
+                                        Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value "0"
+                                        } Else {
+                                        Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value "0"
+                                        }
+                                        } ElseIf ($numSplit -eq 5) {
+                                        Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value "0"
+                                        } Else {
+                                        Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Value "0"
+                                        }
+                                }
+                        )
+                        $form.Controls.Add($uacButton)
+                        ############WinUpdate Button#############
+                        $winUpdateButton = New-Object System.Windows.Forms.Button
+                        $winUpdateButton.Location = New-Object System.Drawing.Point(370, 442.5) 
+                        $winUpdateButton.Size = New-Object System.Drawing.Size(100, 55)
+                        $winUpdateButton.Text = "Update"
+                        $winUpdateButton.Add_Click(
+                                {
+                                   Powershell "C:\Users\cereal\Desktop\powershell\checklist\update-Windows.ps1"
+                                }
+                        )
+                        $form.Controls.Add($winUpdateButton)
+                        #################################################ADMIN_GROUPBOX CONFIG END#################################################
+                        ##################################################SYS_CONFIG CHECK START###################################################
+                        <#Section contains settings that have been modified and require a validation#>
+                        ############PowerConfig Label#############
+                        $powerLabel = New-object System.Windows.Forms.Label
+                        $powerLabel.Text = "PowerConfig:"
+                        $powerLabel.Location = New-Object System.Drawing.Point(55, 625)
+                        $powerLabel.size = New-Object System.Drawing.Size(100, 55)
+                        $Form.Controls.Add($powerLabel)
+                        ############PowerConfig TextBox###########
+                        #AC - plugged in with cord
+                        #DC - battery (for laptops)
+                        $powerBox = New-Object System.Windows.Forms.label
+                        powercfg -change -monitor-timeout-ac 0
+                        powercfg -change -monitor-timeout-dc 45
+                        powercfg -change disk-timeout-ac 0
+                        powercfg -change disk-timeout-dc 120
+                        powercfg -change standby-timeout-ac 0
+                        powercfg -change standby-timeout-dc 0
+                        powercfg -change hibernate-timeout-ac 0
+                        powercfg -change hibernate-timeout-dc 0
+                        Function Detect-Laptop
+                        {
+                            Param( [string]$computer = “localhost” )
+                            $isLaptop = $false
+                                #The chassis is the physical container that houses the components of a computer. Check if the machine’s chasis type is 9.Laptop 10.Notebook 14.Sub-Notebook
+                                if(Get-WmiObject -Class win32_systemenclosure -ComputerName $computer | Where-Object { $_.chassistypes -eq 9 -or $_.chassistypes -eq 10 -or $_.chassistypes -eq 14})
+                                { $isLaptop = $true }
+                                #Shows battery status , if true then the machine is a laptop.
+                                if(Get-WmiObject -Class win32_battery -ComputerName $computer)
+                                { $isLaptop = $true }
+                            $isLaptop
+                        }
+                        If(Detect-Laptop) {$powerBox.Text = "Laptop"}
+                        else {$powerBox.Text = "Desktop"}
+                        $powerBox.Location = New-Object System.Drawing.Point(160, 625)
+                        $powerBox.size = New-Object System.Drawing.Size(100, 55)
+                        $form.Controls.Add($powerBox)
+                        ############Updates INFO Label#############
+                        $updateLabel = New-object System.Windows.Forms.Label
+                        $updateLabel.Text = "Build:"
+                        $updateLabel.Location = New-Object System.Drawing.Point(265, 625)
+                        $updateLabel.size = New-Object System.Drawing.Size(100, 55)
+                        $Form.Controls.Add($updateLabel)
+                        ############Updates INFO Label2#############
+                        $updateInfo = New-Object System.Windows.Forms.Label
+                        $build = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ReleaseId).ReleaseId
+                        $updateInfo.Text = $build
+                        $updateInfo.Location = New-Object System.Drawing.Point(370, 625)
+                        $updateInfo.Size = New-Object System.Drawing.Size(100, 55)
+                        $form.Controls.Add($updateInfo)
+                        ############Submit Button#############
+                        $submitForm = New-Object System.Windows.Forms.Button
+                        $submitForm.Location = New-Object System.Drawing.Size(200, 700)
+                        $submitForm.Size = New-Object System.Drawing.Size(120,23)
+                        $submitForm.Text = "Submit"
+                        $form.Controls.Add($submitForm)
+                    </code>
+                    </p>
+            </div>
+        </div>
+    </body>
+</html>
